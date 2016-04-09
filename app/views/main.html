@@ -12,12 +12,19 @@
         <img src="images/{{event.country}}.png" style="width:50px; height:50px">
       </timeline-badge>
       <timeline-panel class="{{event.badgeClass}} timeline-hidden" style="background-color:#E6F5FC" when-visible="animateElementIn" when-not-visible="animateElementOut">
-        <timeline-heading>
-          <h4>{{event.name}}</h4>
-        </timeline-heading>
-        <p style="font-family: Sans-serif; "><i>{{event.message}}</i></p>
-        <p>The Project is rated {{event.star}} out of 5<i class="glyphicon glyphicon-star"></i></p>       
-        <small class="text-muted ng-binding"><p style="text-align: right">{{event.messageTime}}</p></small>
+      <div class="row">
+        <div style="align:left" class="col-md-9">
+          <timeline-heading>
+            <h4>{{event.name}}</h4>
+          </timeline-heading>
+          <p style="font-family: Sans-serif; width:75%"><i>{{event.message}}</i></p>
+          <p>The Project is rated {{event.star}} out of 5<i class="glyphicon glyphicon-star"></i></p>
+        </div>
+        <div style="align:right" class="col-md-3">
+          <img src="images/{{event.img}}.jpg" style="width:90px; height:100px">
+        </div>
+      </div>
+      <small class="text-muted ng-binding"><p style="text-align: right">{{event.messageTime}}</p></small>
       </timeline-panel>
     </timeline-event>
   </timeline>

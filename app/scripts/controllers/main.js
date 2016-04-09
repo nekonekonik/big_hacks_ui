@@ -50,51 +50,57 @@
 
 
 angular.module('bigHacksUiApp')
-  .controller('MainCtrl', function ($scope, $http, poller) {
-
-
+.controller('MainCtrl', function ($scope, $http, poller) {
 
 	  // in controller
-	$scope.events = [
-	];
+	  $scope.events = [
+	  ];
 
-	var people = [
-		{
-			name: 'Hanwan Kong',
-			country: 'China'
-		},
-		{
-			name: 'Gomez Castillo',
-			country: 'Mexico'
-		},
-		{
-			name: 'Leticia Evalon',
-			country: 'Philippines'
-		},
-		{
-			name: 'Shanti Arumugam',
-			country: 'India'
-		},
-		{
-			name: 'Meiling Yang',
-			country: 'China'
-		},
-		{
-			name: 'Alphonse Peran',
-			country: 'Philippines'
-		},
-		{
-			name: 'Tanisha Chopra',
-			country: 'India'
-		},
-		{
-			name: 'Eduardo Souza',
-			country: 'Mexico'
-		}];
+	  var people = [
+	  {
+	  	name: 'Hanwan Kong',
+	  	country: 'China',
+	  	img:'Hanwan'
+	  },
+	  {
+	  	name: 'Gomez Castillo',
+	  	country: 'Mexico',
+	  	img:'Gomez'
+	  },
+	  {
+	  	name: 'Leticia Evalon',
+	  	country: 'Philippines',
+	  	img:'Leticia'
+	  },
+	  {
+	  	name: 'Shanti Arumugam',
+	  	country: 'India',
+	  	img:'Shanti'
+	  },
+	  {
+	  	name: 'Meiling Yang',
+	  	country: 'China',
+	  	img: 'Meiling'
+	  },
+	  {
+	  	name: 'Alphonse Peran',
+	  	country: 'Philippines',
+	  	img:'Alphonse'
+	  },
+	  {
+	  	name: 'Tanisha Chopra',
+	  	country: 'India',
+	  	img:'Tanisha'
+	  },
+	  {
+	  	name: 'Eduardo Souza',
+	  	country: 'Mexico',
+	  	img:'Eduardo'
+	  }];
 
-	var randomIndex = function(){
-		return Math.floor((Math.random() * 8));
-	};
+	  var randomIndex = function(){
+	  	return Math.floor((Math.random() * 8));
+	  };
 
 	// optional: not mandatory (uses angular-scroll-animate)
 	$scope.animateElementIn = function($el) {
@@ -114,22 +120,22 @@ angular.module('bigHacksUiApp')
 
 	var resultPoller;
 
-  	var pollResults = function(response) {
-     	if (response.data.messageTime !== $scope.events[$scope.events.length-1].messageTime) {
-     		var contact = {};
-	 		contact = angular.extend(contact, randomPeople());
-	     	contact.message = response.data.translatedMessage;
-	     	contact.messageTime = response.data.messageTime;
-	     	contact.star = response.data.numStar;
-	     	$scope.events.push(contact);
-	     	console.log(contact);
-     	}
-    };
+	var pollResults = function(response) {
+		if (response.data.messageTime !== $scope.events[$scope.events.length-1].messageTime) {
+			var contact = {};
+			contact = angular.extend(contact, randomPeople());
+			contact.message = response.data.translatedMessage;
+			contact.messageTime = response.data.messageTime;
+			contact.star = response.data.numStar;
+			$scope.events.push(contact);
+			console.log(contact);
+		}
+	};
 
-  resultPoller = poller.get('http://a183674a.ngrok.io/message', {
+	resultPoller = poller.get('http://a183674a.ngrok.io/message', {
                           delay: 1500     // delay for 5 seconds
-                    });
-  resultPoller.promise.then(null, null, pollResults);
+                      });
+	resultPoller.promise.then(null, null, pollResults);
 	
 	// profilesArr.forEach(function(entry){
 	// 	var contact = randomPeople();
@@ -140,24 +146,24 @@ angular.module('bigHacksUiApp')
 	// });
 	function initialize() {
 		$http({
-	   		method: 'GET',
-	   		url: 'http://a183674a.ngrok.io/messagelist'
-		 }).then(function successCallback(response) {
-	     	// this callback will be called asynchronously
-	     	// when the response is available
+			method: 'GET',
+			url: 'http://a183674a.ngrok.io/messagelist'
+		}).then(function successCallback(response) {
+		     	// this callback will be called asynchronously
+		     	// when the response is available
 
 	     	console.log('response', response);
 	     	angular.forEach(response.data, function(profile) {
 	     		var contact = {};
 	     		contact = angular.extend(contact, randomPeople());
-		     	contact.message = profile.translatedMessage;
-		     	contact.messageTime = profile.messageTime;
-		     	contact.star = profile.numStar;
-		     	$scope.events.push(contact);
-		     	console.log(contact);
+	     		contact.message = profile.translatedMessage;
+	     		contact.messageTime = profile.messageTime;
+	     		contact.star = profile.numStar;
+	     		$scope.events.push(contact);
+	     		console.log(contact);
 	     	});
-	  	});
+	     });
 	}
 
 	initialize();
-  });
+});
