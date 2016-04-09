@@ -15,7 +15,9 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angular-timeline',
+    'angular-scroll-animate'
   ])
   .config(function ($routeProvider) {
     $routeProvider

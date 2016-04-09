@@ -4,6 +4,21 @@
     Real-Time Feed
   </h1>
 </div>
-
+  <!-- view -->
+  <timeline>
+    <timeline-event ng-repeat="event in events" side="">
+      <timeline-badge class="{{event.badgeClass}} timeline-hidden"
+                      when-visible="animateElementIn" when-not-visible="animateElementOut">
+        <i class="glyphicon {{event.badgeIconClass}}"></i>
+      </timeline-badge>
+      <timeline-panel class="{{event.badgeClass}} timeline-hidden"
+                      when-visible="animateElementIn" when-not-visible="animateElementOut">
+        <timeline-heading>
+          <h4>{{event.title}}</h4>
+        </timeline-heading>
+        <p>{{event.content}}</p>
+      </timeline-panel>
+    </timeline-event>
+  </timeline>
 <div>
 </div>
