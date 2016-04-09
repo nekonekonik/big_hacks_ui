@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'angular-timeline',
-    'angular-scroll-animate'
+    'angular-scroll-animate',
+    'emguo.poller'
   ])
   .config(function ($routeProvider) {
     $routeProvider

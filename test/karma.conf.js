@@ -33,6 +33,7 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-timeline/dist/angular-timeline.js',
       'bower_components/angular-scroll-animate/dist/angular-scroll-animate.js',
+      'bower_components/angular-poller/angular-poller.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",
