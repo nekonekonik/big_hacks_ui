@@ -7,16 +7,15 @@
   <!-- view -->
   <timeline>
     <timeline-event ng-repeat="event in events" side="">
-      <timeline-badge class="{{event.badgeClass}} timeline-hidden"
-                      when-visible="animateElementIn" when-not-visible="animateElementOut">
-        <i class="glyphicon {{event.badgeIconClass}}"></i>
+      <timeline-badge class="{{event.badgeClass}} timeline-hidden" style="width:50px; height:50px">
+        <img src="images/{{event.country}}.png" style="width:50px; height:50px">
       </timeline-badge>
-      <timeline-panel class="{{event.badgeClass}} timeline-hidden"
-                      when-visible="animateElementIn" when-not-visible="animateElementOut">
+      <timeline-panel class="{{event.badgeClass}} timeline-hidden" style="background-color:#E6F5FC">
         <timeline-heading>
-          <h4>{{event.title}}</h4>
+          <h4>{{event.name}}</h4>
         </timeline-heading>
-        <p>{{event.content}}</p>
+        <p style="font-family: Sans-serif; "><i>{{event.message}}</i></p>
+        <small class="text-muted ng-binding"><p style="text-align: right">{{event.messageTime}}</p></small>
       </timeline-panel>
     </timeline-event>
   </timeline>
